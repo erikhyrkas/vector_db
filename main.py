@@ -43,8 +43,8 @@ class LocalVectorDb:
         self.documents = data["documents"]
 
     def best(self, query_vector):
-        similarities = self.cosine_similarity(query_vector)
-        top_index = np.argsort(similarities, axis=0)[-1:][::-1]
+        similarity = self.cosine_similarity(query_vector)
+        top_index = np.argsort(similarity, axis=0)[-1:][::-1]
         return top_index.flatten()[0]
 
     def query(self, query):
